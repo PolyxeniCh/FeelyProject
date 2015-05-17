@@ -14,8 +14,12 @@ public class User {
 	ArrayList<String> tvSeriesGenreList = new ArrayList<String>();
 
 
-	public User() {
-		//κατασκευαστής
+	//κατασκευαστής
+	public User(String username,String password)
+	{
+		this.username = username;
+		this.password=password;
+		
 	}
 
 
