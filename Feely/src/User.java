@@ -4,14 +4,14 @@ import java.util.ArrayList;
 public class User {
 
 
-	String username;
-	String password;
-	ArrayList<String> activityIntensityList = new ArrayList<String>();
-	ArrayList<String> bookGenreList = new ArrayList<String>();
-	ArrayList<String> destinationCategoryList = new ArrayList<String>();
-	ArrayList<String> movieGenreList = new ArrayList<String>();
-	ArrayList<String> musicGenreList = new ArrayList<String>();
-	ArrayList<String> tvSeriesGenreList = new ArrayList<String>();
+	private String username;
+	private String password;
+	private ArrayList<String> activityIntensityList = new ArrayList<String>();
+	private ArrayList<String> bookGenreList = new ArrayList<String>();
+	private ArrayList<String> destinationCategoryList = new ArrayList<String>();
+	private ArrayList<String> movieGenreList = new ArrayList<String>();
+	private ArrayList<String> musicGenreList = new ArrayList<String>();
+	private ArrayList<String> tvSeriesGenreList = new ArrayList<String>();
 
 
 	public User() {
