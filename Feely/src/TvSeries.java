@@ -8,9 +8,9 @@ public class TvSeries extends Category {
 	private ArrayList<String> genre = new ArrayList<String>();
 
 
-	public TvSeries() {
-		//κατασκευαστής
-		super();
+	public TvSeries(String title, String link, String IMDBLink) {
+		super(title, link);
+		this.IMDBLink = IMDBLink;
 	}
 
 

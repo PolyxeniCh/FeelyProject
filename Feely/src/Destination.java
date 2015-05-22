@@ -5,9 +5,9 @@ public class Destination  extends Category {
 	private String category;
 
 
-	public Destination() {
-		//κατασκευαστής
-		super();
+	public Destination(String title, String link, String category) {
+		super(title, link);
+		this.category = category;
 	}
 
 

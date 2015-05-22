@@ -8,9 +8,9 @@ public class Music extends Category {
 	private ArrayList<String> genre = new ArrayList<String>();
 
 
-	public Music() {
-		//κατασκευαστής
-		super();
+	public Music(String title, String link, String artist) {
+		super(title, link);
+		this.artist = artist;
 	}
 
 

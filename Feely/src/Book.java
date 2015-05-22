@@ -8,9 +8,9 @@ public class Book extends Category {
 	private ArrayList<String> genre = new ArrayList<String>();
 
 
-	public Book() {
-		//κατασκευαστής
-		super();
+	public Book(String title, String link, String author) {
+		super(title, link);
+		this.author = author;
 	}
 
 

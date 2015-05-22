@@ -5,9 +5,9 @@ public class Activity extends Category {
 	private String intensity;
 
 
-	public Activity() {
-		//κατασκευαστής
-		super();
+	public Activity(String title, String link, String intensity) {
+		super(title, link);
+		this.intensity = intensity;
 	}
 
 

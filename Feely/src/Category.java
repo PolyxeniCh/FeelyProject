@@ -7,12 +7,14 @@ public abstract class Category {
 
 	private String title;
 	private String link;
-	private int views = 0;
+	private int views;
 	private ArrayList<String> mood = new ArrayList<String>();
 
 
-	public Category() {
-		//κατασκευαστής
+	public Category(String title, String link) {
+		this.title = title;
+		this.link = link;
+		this.views = 0;
 	}
 
 
