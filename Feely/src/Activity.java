@@ -1,3 +1,6 @@
+/*
+ *  Η κλάση αποτελεί ένα αντικείμενο τύπου : Δραστηριότητα.
+ */
 
 public class Activity extends Category {
 

@@ -1,20 +1,25 @@
+/*
+ * Η κλάση αποτελεί γενικά μια κατηγορία.
+ * Είναι υπερκλάση για τις εξής κλάσεις : Activity, Book, Destination, Movie, Music, TvSeries
+ */
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-//Αποτελεί υπερκλάση
 
-public abstract class Category {
+public abstract class Category implements Serializable {
 
 
-	private String title;
-	private String link;
-	private int views;
-	private ArrayList<String> mood = new ArrayList<String>();
+	private String title;                                            //Τίτλος αντικειμένου
+	private String link;                                             //Link αντικειμένου για πληροφορίες στον ιστό
+	private int views;                                               //Τα συνολικά views του αντικειμένου
+	private ArrayList<String> mood = new ArrayList<String>();        //Οι διαθέσεις για τις οποίες είναι κατάλληλο το αντικείμενο
 
 
 	public Category(String title, String link) {
 		this.title = title;
 		this.link = link;
-		this.views = 0;
+		this.views = 0;                                              //Όταν πρωτοδημιουργείται ένα αντικείμενο δεν έχει views 
 	}
 
 

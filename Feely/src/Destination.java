@@ -1,4 +1,6 @@
-
+/*
+ * Η κλάση αποτελεί ένα αντικείμενο τύπου : Προορισμός
+ */
 public class Destination  extends Category {
 
 
