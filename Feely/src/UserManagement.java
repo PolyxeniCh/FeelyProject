@@ -1,3 +1,12 @@
+/*
+ * Η κλάση αυτή περιέχει λειτουργίες που αφορούν το σύνολο των χρηστών που υπάρχουν στο σύστημα.
+ * 
+ * Έχει ως σκοπό τον έλεγχο εγκυρότητας των δεδομένων ενός χρήστη που θέλει
+ * να εισέρθει ή και να εγγραφεί στο σύστημα.
+ * 
+ * Όλες οι ιδιότητες και οι μέθοδοι που διαθέτει είναι στατικές.
+ */
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -5,97 +14,118 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
-//Η κλάση θα περιέχει στατικές ιδιότητες και μεθόδους!!!
 
 public class UserManagement {
 
 
-	private static ArrayList<User> userList = new  ArrayList<User>();
-	private static String currentUsername;
+	private static ArrayList<User> userList = new  ArrayList<User>();   //Λίστα που περιέχει όλους τους χρήστες του συστήματος
+	private static String currentUsername;                              //Όνομα του τρέχοντα χρήστη
 
 
 	public  UserManagement() {
-		//κατασκευαστής
 	}
 
 
-	public static int logInVerification(String username,String password) {
 
-		   Boolean WrongPassword = false;
-		   Boolean WrongUsername = false;
-		   
-		   User exist = new User(username,password);
-		   
-		   deserialization();
-		      
-		   for(User u : UserManagement.getUserList())
-	        {
-			   //System.out.println(u.getPassword());
-	        	if(u.getUsername()==exist.getUsername() ) 
-	        	{
-	        		
-	        		if(u.getPassword()==exist.getPassword())
-	        		{
-	        			//Γινεται το login
-	        			currentUsername=exist.getUsername();
-	        			JOptionPane.showMessageDialog(null, "You logged in as" + username);
-	        		}
-	        		else WrongPassword = true ;
-	        			
-	        	}
-	        	else WrongUsername = true;
-	        }
-	    	  
-		   if(WrongPassword) JOptionPane.showMessageDialog(null, "Wrong password!");
-		   if(WrongUsername) JOptionPane.showMessageDialog(null, "Wrong username!" );
-		   
-		   return 0;
-	}
+	// ---------- LOG IN ----------
+	/*
+	 * Ελέγχει αν ένας χρήστης επιτρέπεται να εισέλθει στο λογαριασμό που επιθυμεί.
+	 * Ανάλογα με την εγκυρότητα των στοιχείων που έχουν εισαχθεί επιστρέφεται μια ακέραια τιμή.
+	 */
 
-	public static int signUpVerification(String username,String password,String repeatPassword) {
+	public static int logInVerification(String username, String password) {
+
+		Boolean wrongPassword = false;
+		Boolean wrongUsername = false;
+
+		UserManagement.deserialization();
+
+		for (User u : UserManagement.getUserList()) {
+			if (u.getUsername().equals(username)) {
+				wrongUsername = false;
+				if (u.getPassword().equals(password)) {
+
+					currentUsername = username;
+					return 0;                      //Γίνεται το Log In
+				}
+				else wrongPassword = true;
+			}
+			else wrongUsername = true;
+		}
+
+		if (wrongUsername) return 1;               //Δεν υπάρχει ο λογαριασμός στον οποίο θέλει να συνδεθεί ο χρήστης
+		if (wrongPassword) return 2;               //Ο κωδικός που έβαλε ο χρήστης δεν συμφωνεί με τον κωδικό του λογαριασμού
+
+		return 0;
 		
-		   boolean Usernameflag = true;
-		   boolean Passwordflag = false;
-		   boolean BothFlag = true;
-		   User NewUser = new User(username,password);	   
-		   
-		   if(username==password)
-		   {
-			   BothFlag = false;
-			   JOptionPane.showMessageDialog(null, "You can't use your username as your password!");
-			   
-		   }
-		   //Ελεγχος για το username
-		   
-		       deserialization();
-		   
-		        for(User u : UserManagement.getUserList())
-		        {
-		        	System.out.println(u.getUsername());
-		        	if(u.getUsername()==NewUser.getUsername() )  Usernameflag  = false;
-		        }
-		    	  
-		    	if(!Usernameflag)   JOptionPane.showMessageDialog(null, "This username already exists!");
-		       
-		   //Ελεγχος για τα password.
-		    	
-			   if(password == repeatPassword)   Passwordflag = true;
-			   else JOptionPane.showMessageDialog(null, "Passwords don't match!");
-			   
-			   //Δημιουργια αντικειμενου σε περιπτωση που τα στοιχεια ειναι σωστα.
-			   if(Usernameflag && Passwordflag && BothFlag) 
-			   {
-				   userList.add(NewUser);
-				   serialization();
-			   }
-			    
-			   return 0;
-		 
 	}
+
+	// ------------------------------
+
+
+
+	// ---------- SIGN UP ----------
+	/*
+	 * Ελέγχει αν ένας χρήστης επιτρέπεται να δημιουργήσει νέο λογαριασμό με τα στοιχεία που έχει εισάγει.
+	 * Ανάλογα με την εγκυρότητα των στοιχείων που έχουν εισαχθεί επιστρέφεται μια ακέραια τιμή.
+	 */
+
+	public static int signUpVerification(String username, String password, String repeatPassword) {
+
+		boolean usernameFlag = true;
+		boolean passwordFlag = false;
+		boolean bothFlag = true;
+		
+		UserManagement.deserialization();
+
+		if (username.equals(password)) {
+			bothFlag = false;
+		}
+		
+		//Έλεγχος για το username
+		
+		for (User u : UserManagement.getUserList()) {
+			if (u.getUsername().equals(username)) {
+				usernameFlag = false;
+			}
+		}
+		
+		//Έλεγχος για τα password.
+
+		if (usernameFlag) {
+			if (password.equals(repeatPassword)) {
+				passwordFlag = true;
+			}
+		}
+
+		//Δημιουργία αντικειμένου σε περίπτωση που τα στοιχεία ειναι σωστά.
+		
+		if (usernameFlag && passwordFlag && bothFlag) {
+			userList.add(new User(username, password));
+			serialization();
+			return 0;                      //Γίνεται το Sign Up
+		}
+		
+		if (!usernameFlag) return 1;       //To username χρησιμοποιείται από κάποιον άλλο
+		if (!passwordFlag) return 2;       //Τα password και repeatPassword δεν είναι ίδια
+		if (!bothFlag) return 3;           //Το password είναι ίδιο με το username και γι' αυτό θεωρείται εύκολος κωδικός
+		
+		return 0;
+
+	}
+
+	// ------------------------------
+
+
+
+	// ---------- SERIALIZATION ----------
+	/*
+	 * Αποθήκευση της λίστας με τους χρήστες του συστήματος σε ένα αρχείο ser
+	 * (το οποίο θα αποτελεί βάση δεδομένων του συστήματος)
+	 */
 
 	public static void serialization() {
+
 		try{
 			FileOutputStream outStream = new FileOutputStream("Users.ser");
 			ObjectOutputStream out = new ObjectOutputStream(outStream);
@@ -109,12 +139,21 @@ public class UserManagement {
 
 	}
 
+	// ------------------------------
+
+
+
+	// ---------- DESERIALIZATION ----------
+	/*
+	 * Διάβασμα της λίστας των χρηστών του συστήματος από αρχείο ser
+	 */
+
 	public static void deserialization() {
-		//Διάβασμα αρχείου ser που περιέχει τη λίστα των Δραστηριοτήτων του συστήματος
+
 		try{
 			FileInputStream inStream = new FileInputStream("Users.ser");
 			ObjectInputStream in = new ObjectInputStream(inStream);
-			 userList = (ArrayList<User>) in.readObject(); 
+			userList = (ArrayList<User>) in.readObject(); 
 			in.close();
 			inStream.close();
 		}
@@ -125,8 +164,10 @@ public class UserManagement {
 			exc.printStackTrace();
 		}
 
-
 	}
+
+	// ------------------------------
+
 
 
 	// ---------- GETTERS ----------
@@ -155,8 +196,4 @@ public class UserManagement {
 
 	// ------------------------------
 
-	public static void addUser(User n)
-	{
-		userList.add(n);
-	}
 }

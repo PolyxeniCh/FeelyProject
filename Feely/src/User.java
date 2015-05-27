@@ -1,3 +1,7 @@
+/*
+ * Η κλάση αποτελεί ένα αντικείμενο τύπου : Χρήστης
+ */
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -5,17 +9,16 @@ import java.util.ArrayList;
 public class User  implements Serializable {
 
 
-	private String username;
-	private String password;
-	private ArrayList<String> activityIntensityList = new ArrayList<String>();
-	private ArrayList<String> bookGenreList = new ArrayList<String>();
-	private ArrayList<String> destinationCategoryList = new ArrayList<String>();
-	private ArrayList<String> movieGenreList = new ArrayList<String>();
-	private ArrayList<String> musicGenreList = new ArrayList<String>();
-	private ArrayList<String> tvSeriesGenreList = new ArrayList<String>();
+	private String username;                                                        //Όνομα χρήστη
+	private String password;                                                        //Κωδικός χρήστη
+	private ArrayList<String> activityIntensityList = new ArrayList<String>();      //Λίστα με τα είδη Δραστηριοτήτων που προτιμάει ο χρήστης
+	private ArrayList<String> bookGenreList = new ArrayList<String>();              //Λίστα με τα είδη Βιβλίων που προτιμάει ο χρήστης
+	private ArrayList<String> destinationCategoryList = new ArrayList<String>();    //Λίστα με τα είδη Προορισμών που προτιμάει ο χρήστης
+	private ArrayList<String> movieGenreList = new ArrayList<String>();             //Λίστα με τα είδη Ταινιών που προτιμάει ο χρήστης
+	private ArrayList<String> musicGenreList = new ArrayList<String>();             //Λίστα με τα είδη Μουσικής που προτιμάει ο χρήστης
+	private ArrayList<String> tvSeriesGenreList = new ArrayList<String>();          //Λίστα με τα είδη Τηλεοπτικών Σειρών που προτιμάει ο χρήστης
 
 
-	//κατασκευαστής
 	public User(String username,String password)
 	{
 		this.username = username;
