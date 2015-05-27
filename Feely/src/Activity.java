@@ -5,7 +5,7 @@
 public class Activity extends Category {
 
 
-	private String intensity;
+	private String intensity;                  //Ένταση δραστηριότητας
 
 
 	public Activity(String title, String link, String intensity) {

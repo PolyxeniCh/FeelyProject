@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Movie extends Category {
 
 
-	private String IMDBLink;
-	private ArrayList<String> genre = new ArrayList<String>();
+	private String IMDBLink;                                        //Link ταινίας στο IMDB
+	private ArrayList<String> genre = new ArrayList<String>();      //Είδη στα οποία ανήκει η ταινία
 
 
 	public Movie(String title, String link, String IMDBLink) {

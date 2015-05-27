@@ -4,7 +4,7 @@
 public class Destination  extends Category {
 
 
-	private String category;
+	private String category;              //Κατηγορία προορισμού
 
 
 	public Destination(String title, String link, String category) {

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Music extends Category {
 
 
-	private String artist;
-	private ArrayList<String> genre = new ArrayList<String>();
+	private String artist;                                          //Καλλιτέχνης του κομματιού μουσικής
+	private ArrayList<String> genre = new ArrayList<String>();      //Είδη στα οποία ανήκει το κομμάτι μουσικής
 
 
 	public Music(String title, String link, String artist) {

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Book extends Category {
 
 
-	private String author;
-	private ArrayList<String> genre = new ArrayList<String>();
+	private String author;                                        //Συγγραφέας βιβλίου
+	private ArrayList<String> genre = new ArrayList<String>();    //Είδη στα οποία ανήκει το βιβλίο
 
 
 	public Book(String title, String link, String author) {
