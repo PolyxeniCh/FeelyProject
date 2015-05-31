@@ -40,6 +40,10 @@ public class UserManagement {
 
 		UserManagement.deserialization();
 
+		if(username.equals("") || password.equals("")) {
+			return 3;
+		}
+		
 		for (User u : UserManagement.getUserList()) {
 			if (u.getUsername().equals(username)) {
 				wrongUsername = false;
@@ -77,17 +81,9 @@ public class UserManagement {
 		boolean bothFlag = true;
 		
 		UserManagement.deserialization();
-
-		if (username.equals(password)) {
-			bothFlag = false;
-		}
 		
-		//Έλεγχος για το username
-		
-		for (User u : UserManagement.getUserList()) {
-			if (u.getUsername().equals(username)) {
-				usernameFlag = false;
-			}
+		if(username.equals("") || password.equals("") || repeatPassword.equals("")) {
+			return 4;                                   //Κάποιο από τα πεδία είναι κενό
 		}
 		
 		//Έλεγχος για τα password.
@@ -95,6 +91,21 @@ public class UserManagement {
 		if (usernameFlag) {
 			if (password.equals(repeatPassword)) {
 				passwordFlag = true;
+				return 2;                               //Τα password και repeatPassword δεν είναι ίδια
+			}
+		}
+
+		if (username.equals(password)) {
+			bothFlag = false;
+			return 3;                                   //Το password είναι ίδιο με το username και γι' αυτό θεωρείται εύκολος κωδικός
+		}
+		
+		//Έλεγχος για το username
+		
+		for (User u : UserManagement.getUserList()) {
+			if (u.getUsername().equals(username)) {
+				usernameFlag = false;
+				return 1;                               //To username χρησιμοποιείται από κάποιον άλλο
 			}
 		}
 
@@ -104,11 +115,7 @@ public class UserManagement {
 			userList.add(new User(username, password));
 			serialization();
 			return 0;                      //Γίνεται το Sign Up
-		}
-		
-		if (!usernameFlag) return 1;       //To username χρησιμοποιείται από κάποιον άλλο
-		if (!passwordFlag) return 2;       //Τα password και repeatPassword δεν είναι ίδια
-		if (!bothFlag) return 3;           //Το password είναι ίδιο με το username και γι' αυτό θεωρείται εύκολος κωδικός
+		}        
 		
 		return 0;
 
