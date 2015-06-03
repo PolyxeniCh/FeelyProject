@@ -17,8 +17,9 @@ public class User  implements Serializable {
 	private ArrayList<String> movieGenreList = new ArrayList<String>();             //Λίστα με τα είδη Ταινιών που προτιμάει ο χρήστης
 	private ArrayList<String> musicGenreList = new ArrayList<String>();             //Λίστα με τα είδη Μουσικής που προτιμάει ο χρήστης
 	private ArrayList<String> tvSeriesGenreList = new ArrayList<String>();          //Λίστα με τα είδη Τηλεοπτικών Σειρών που προτιμάει ο χρήστης
+	private ArrayList<String> suggestionList = new ArrayList<String>();             //Λίστα με τις κατηγορίες για τις οποίες ο χρήστης θέλει να του γίνουν προτάσεις
 
-
+	
 	public User(String username,String password)
 	{
 		this.username = username;
@@ -61,6 +62,10 @@ public class User  implements Serializable {
 		return tvSeriesGenreList;
 	}
 
+	public ArrayList<String> getSuggestionList() {
+		return suggestionList;
+	}
+	
 	// ------------------------------
 
 
@@ -99,6 +104,12 @@ public class User  implements Serializable {
 		this.tvSeriesGenreList = tvSeriesGenreList;
 	}
 
+	public void setSuggestionList(ArrayList<String> suggestionList) {
+		this.suggestionList = suggestionList;
+	}
+
 	// ------------------------------
+	
+	
 
 }
