@@ -25,11 +25,11 @@ public class CategoryManagement {
 	private static ArrayList<Music> musicList = new ArrayList<Music>();                    //Λιστα που περιέχει όλη τη Μουσική του συστήματος
 	private static ArrayList<TvSeries> tvSeriesList = new ArrayList<TvSeries>();           //Λίστα που περιέχει όλες τις Τηλεοπτικές Σειρές του συστήματος
 
-	private static final String tvSeries_MovieGenreMatrix[] = {"Action", "Fantasy", "Crime/Mystery", "Romance", "Comedy", "Drama", "Thriller"};             //Πίνακας που περιέχει όλα τα είδη Ταινιών και Τηλεοπτικών Σειρών
-	private static final String musicGenreMatrix[] = {"Rock", "Metal", "Jazz", "Rap/Hip-hop", "Pop", "Classical", "Greek", "Soundtracks"};                  //Πίνακας που περιέχει όλα τα είδη Μουσικής
-	private static final String bookGenreMatrix[] = {"Romance", "Horror", "Crime/Mystery", "Fantasy", "Humor", "Drama", "Poetry"};                          //Πίνακας που περιέχει όλα τα είδη Βιβλίων
-	private static final String destinationCategoryMatrix[] = {"Food", "Drink", "Cinema", "Coffee", "Internet-cafe", "Board games", "Theater", "Concert"};  //Πίνακας που περιέχει όλα τα είδη Προορισμών
-	private static final String activityIntensityMatrix[] = {"Relaxing", "Moderate", "Intense"};                                                            //Πίνακας που περιέχει όλα τα είδη Δραστηριοτήτων
+	private static final String tvSeries_MovieGenreMatrix[] = {"Action", "Fantasy", "Crime/Mystery", "Romance", "Comedy", "Drama", "Thriller"};                                                                                                  //Πίνακας που περιέχει όλα τα είδη Ταινιών και Τηλεοπτικών Σειρών
+	private static final String musicGenreMatrix[] = {"Rock", "Metal", "Jazz", "Rap/Hip-hop", "Pop", "Electronic/Dance Music", "Classical Music", "Theme Songs", "Έντεχνα", "Λαϊκά"};                                                                                                       //Πίνακας που περιέχει όλα τα είδη Μουσικής
+	private static final String bookGenreMatrix[] = {"Horror", "Suspense/Thriller", "Fantasy", "Crime/Detective", "Adventure", "YA", "Classic", "Romance", "Science Fiction", "Realistic Fiction", "Drama", "Greek Literature", "Nonfiction"};   //Πίνακας που περιέχει όλα τα είδη Βιβλίων
+	private static final String destinationCategoryMatrix[] = {"Food", "Drink", "Cinema", "Coffee", "Internet-cafe", "Board games", "Theater", "Concert"};                                                                                       //Πίνακας που περιέχει όλα τα είδη Προορισμών
+	private static final String activityIntensityMatrix[] = {"Relaxing", "Active"};                                                                                                                                                 //Πίνακας που περιέχει όλα τα είδη Δραστηριοτήτων
 
 	private static String currentMood;      //Τρέχουσα διάθεση του χρήστη
 
